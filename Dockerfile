@@ -11,9 +11,9 @@ RUN ls -lotra /root/ && ls -lotr /root/osa
 
 ADD osa11_init.sh /root/osa11_init.sh
 
-RUN yum -y install libX11 libXext libXpm libXft
+RUN yum -y install libX11 libXext libXpm libXft libgfortran
 
-ADD entrypoint.sh entrypoint.sh
+ADD entrypoint.sh /root/entrypoint.sh
 
-RUN DISPLAY=:0 bash entrypoint.sh
-#ENTRYPOINT entrypoint.sh
+#RUN DISPLAY=:0 bash entrypoint.sh
+ENTRYPOINT /root/entrypoint.sh

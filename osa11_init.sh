@@ -8,5 +8,5 @@ source $ISDC_ENV/bin/isdc_init_env.sh
 #export INTEGRAL_DATA=/data/rep_base_prod
 export REP_BASE_PROD=/data/rep_base_prod
 
-source $ISDC_ENV/bin/thisroot.sh
+#source $ISDC_ENV/bin/thisroot.sh
 
