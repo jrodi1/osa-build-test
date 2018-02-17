@@ -1,4 +1,5 @@
 tarball?=osa11-Ubuntu_16.04_x86_64.tar.gz
+platform?=ubuntu
 
 CONTAINER_NAME="volodymyrsavchenko/docker-integral-osa:osa11-test-ubuntu"
 
@@ -21,7 +22,7 @@ store-deps:
 
 build: 
 	cp -fv ../artifacts/$(tarball) osa.tgz && \
-	docker build -t $(CONTAINER_NAME) .
+	docker build -t $(CONTAINER_NAME) -f Dockerfile.$(platform) .
 
 push: build
 	docker push $(CONTAINER_NAME)
