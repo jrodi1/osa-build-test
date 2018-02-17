@@ -1,7 +1,6 @@
-FROM centos
+FROM ubuntu
 
-RUN yum -y install epel-release
-RUN yum -y update
+RUN apt-get -y update
 
 #RUN ln -s /usr/lib64/libpcre.so.1 /usr/lib64/libpcre.so.0
 #RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash && yum -y install git-lfs
@@ -11,9 +10,10 @@ RUN ls -lotra /root/ && ls -lotr /root/osa
 
 ADD osa11_init.sh /root/osa11_init.sh
 
-RUN yum -y install libX11 libXext libXpm libXft libgfortran
+RUN apt-get -y install libx11-6 libxext6 libxpm4 libxft2 libgfortran3
+
 
 ADD entrypoint.sh /root/entrypoint.sh
 
 #RUN DISPLAY=:0 bash entrypoint.sh
-ENTRYPOINT /root/entrypoint.sh
+ENTRYPOINT bash /root/entrypoint.sh
